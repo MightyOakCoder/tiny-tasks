@@ -1,6 +1,7 @@
+import React from 'react';
 import * as usersService from '../../utilities/users-service';
 
-export default function TaskPage() {
+export default function ChildPage() {
 
   async function handleCheckToken() {
     // Promise will resolve to a Date object
@@ -10,7 +11,7 @@ export default function TaskPage() {
 
   return (
     <>
-      <h1>Task Page</h1>
+      <h1>Child Page</h1>
       <button onClick={handleCheckToken}>Check When My Login Expires</button>
     </>
   );

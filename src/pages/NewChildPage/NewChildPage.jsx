@@ -1,17 +1,18 @@
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import * as itemsAPI from '../../utilities/items-api';
-import * as ordersAPI from '../../utilities/orders-api';
-import './NewOrderPage.css';
+import * as tasksAPI from '../../utilities/tasks-api';
+import * as childrenAPI from '../../utilities/children-api';
+import './NewChildPage.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from '../../components/Logo/Logo';
+// import Logo from '../../components/Logo/Logo';
 import TaskList from '../../components/TaskList/TaskList';
 import AgeRangeList from '../../components/AgeRangeList/AgeRangeList';
 import ChildProfile from '../../components/ChildProfile/ChildProfile';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-export default function NewOrderPage({ user, setUser }) {
-  const [taskItems, setTaskItems] = useState([]);
-  const [activeAge, setactiveAge] = useState('');
+export default function NewChildPage({ user, setUser }) {
+  const [taskListItems, setTaskListItems] = useState([]);
+  const [activeAge, setActiveAge] = useState('');
   const [list, setList] = useState(null);
   // Obtain a ref object
   const ageRangesRef = useRef([]);
@@ -24,18 +25,18 @@ export default function NewOrderPage({ user, setUser }) {
   useEffect(function () {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();
-      ageRangeRef.current = tasks.reduce((ages, task) => {
+      ageRangesRef.current = tasks.reduce((ages, task) => {
         const age = task.ageRange.age;
         return ages.includes(age) ? ages : [...ages, age]
       }, []);
-      setactiveAge(ageRangesRef.current[1]);
-      setTaskItems(tasks);
+      setActiveAge(ageRangesRef.current[1]);
+      setTaskListItems(tasks);
     }
     getTasks();
 
     // Load the user's cart (the unpaid order for that user)
     async function getList() {
-      const list = await ordersAPI.getList();
+      const list = await childrenAPI.getList();
       setList(list);
     }
     getList();
@@ -47,9 +48,7 @@ export default function NewOrderPage({ user, setUser }) {
   /*--- Event Handlers ---*/
 
   async function handleAddToChild(taskId) {
-    // 1. Call the addItemToCart function in ordersAPI, passing to it the itemId, and assign the resolved promise to a variable named cart.
     const updatedList = await childrenAPI.addTaskToList(taskId);
-    // 2. Update the cart state with the updated cart received from the server
     setList(updatedList);
   }
 
@@ -64,11 +63,11 @@ export default function NewOrderPage({ user, setUser }) {
   }
 
   return (
-    <main className="NewTaskPage">
+    <main className="NewChildPage">
       <aside>
-        <Logo />
+        {/* <Logo /> */}
         <AgeRangeList
-          categories={ageRangeRef.current}
+          AgeRanges={ageRangesRef.current}
           activeAge={activeAge}
           setActiveAge={setActiveAge}
         />
@@ -76,7 +75,7 @@ export default function NewOrderPage({ user, setUser }) {
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <TaskList
-        taskListItems={taskListItems.filter(task) => task.ageRange.age === activeAge)}
+        taskListItems={taskListItems.filter(task => task.ageRange.age === activeAge)}
         handleAddToChild={handleAddToChild}
       />
       <ChildProfile

@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import NewTaskPage from '../NewTaskPage/NewTaskPage';
-import TaskPage from '../TaskPage/TaskPage';
+import NewChildPage from '../NewChildPage/NewChildPage';
+import ChildPage from '../ChildPage/ChildPage';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
@@ -16,8 +16,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-            <Route path="/children/new" element={<NewTaskPage />} />
-            <Route path="/children" element={<TaskPage />} />
+            <Route path="/children/new" element={<NewChildPage />} />
+            <Route path="/children" element={<ChildPage />} />
           </Routes>
         </>
         :

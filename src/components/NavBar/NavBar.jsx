@@ -12,9 +12,9 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <h1>Welcome {user.name}</h1>
-      <Link to="/children">Tasks</Link>
+      <Link to="/children">Choose Child Profile</Link>
       &nbsp; | &nbsp;
-      <Link to="/children/new">New Task</Link>
+      <Link to="/children/new">Add New Child Profile</Link>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
