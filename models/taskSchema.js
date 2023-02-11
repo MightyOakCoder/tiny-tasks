@@ -8,4 +8,4 @@ const taskSchema = new Schema({
   timestamps: true
 });
 
-module.exports = itemSchema;
+module.exports = taskSchema;
