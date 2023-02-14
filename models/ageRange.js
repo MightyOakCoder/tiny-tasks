@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ageRangeSchema = new Schema({
+const categorySchema = new Schema({
     age: {type: String, required: true},
     sortOrder: Number
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('AgeRange', ageRangeSchema);
+module.exports = mongoose.model('Category', categorySchema);

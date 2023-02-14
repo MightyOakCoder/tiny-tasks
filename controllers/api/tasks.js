@@ -6,9 +6,9 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const tasks = await Task.find({}).sort('task').populate('ageRange').exec();
+  const tasks = await Task.find({}).sort('chore').populate('category').exec();
   // re-sort based upon the sortOrder of the categories
-  tasks.sort((a, b) => a.ageRange.sortOrder - b.ageRange.sortOrder);
+  tasks.sort((a, b) => a.category.sortOrder - b.category.sortOrder);
   res.json(tasks);
 }
 

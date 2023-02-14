@@ -3,8 +3,8 @@ import './NewTaskForm.css';
 
 export default function NewTaskForm({ addTask }) {
   const [newTask, setNewTask] = useState({
-    task: "",
-    ageRange: "",
+    chore: "",
+    category: "",
     points: 2
   });
 
@@ -13,7 +13,7 @@ export default function NewTaskForm({ addTask }) {
     evt.preventDefault();
     if (newTask.name.trim() !== "") {
       addTask(newTask);
-      setNewTask({ task: "", ageRange: "", points: 2 });
+      setNewTask({ chore: "", category: "", points: 2 });
     }
   }
 
@@ -23,7 +23,7 @@ export default function NewTaskForm({ addTask }) {
   }
 
   return (
-    <div className="NeTaskForm">
+    <div className="NewTaskForm">
       <form onSubmit={handleAddTask}>
         <label>Task</label>
         <input
@@ -35,10 +35,10 @@ export default function NewTaskForm({ addTask }) {
         <br/>
         <label>Age Range</label>
         <select
-          name="ageRange"
+          name="category"
           defaultValue=""
           onChange={handleChange}
-          value={newTask.ageRange}
+          value={newTask.category}
         >
           <option value={2}>2+</option>
           <option value={4}>4+</option>

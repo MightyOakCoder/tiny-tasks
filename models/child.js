@@ -2,7 +2,7 @@ const Schema = require('mongoose').Schema;
 
 const childSchema = new Schema({
     name: {type: String, required: true},
-    ageRange: {type: Schema.Types.ObjectId, ref: 'AgeRange'}
+    category: {type: Schema.Types.ObjectId, ref: 'Category'}
 }, {
   timestamps: true
 });

@@ -2,18 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as tasksAPI from '../../utilities/tasks-api';
 import * as ordersAPI from '../../utilities/orders-api';
 import './TaskList.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TotalList from '../../components/TotalList/TotalList';
-import AgeRangeList from '../../components/AgeRangeList/AgeRangeList';
-import TaskDetail from '../../components/TaskDetail/TaskDetail';
+import CategoryList from '../../components/CategoryList/CategoryList';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default function TaskList({ user, setUser }) {
   const [totalTasks, setTotalTasks] = useState([]);
-  const [activeAge, setActiveAge] = useState('');
+  const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
   // Obtain a ref object
-  const ageRangesRef = useRef([]);
+  const categoriesRef = useRef([]);
   const navigate = useNavigate();
 
   // useEffect(function() {
@@ -23,11 +23,11 @@ export default function TaskList({ user, setUser }) {
   useEffect(function() {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();
-      ageRangesRef.current = tasks.reduce((ages, task) => {
-        const age = task.ageRange.chore;
-        return ages.includes(age) ? ages : [...ages, age]
+      categoriesRef.current = tasks.reduce((cats, task) => {
+        const cat = task.category.chore;
+        return cats.includes(cat) ? cats : [...cats, cat]
       }, []);
-      setActiveAge(ageRangesRef.current[1]);
+      setActiveCat(categoriesRef.current[1]);
       setTotalTasks(tasks);
     }
     getTasks();
@@ -65,19 +65,19 @@ export default function TaskList({ user, setUser }) {
   return (
     <main className="TaskList">
       <aside>
-          <AgeRangeList
-          ageRanges={ageRangesRef.current}
-          activeAge={activeAge}
-          setActiveAge={setActiveAge}
+          <CategoryList
+          categories={categoriesRef.current}
+          activeCat={activeCat}
+          setActiveCat={setActiveCat}
         />
-        {/* <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link> */}
+        <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <TotalList
-        totalTasks={totalTasks.filter(task => task.ageRange.chore === activeAge)}
+        totalTasks={totalTasks.filter(task => task.category.chore === activeCat)}
         handleAddToOrder={handleAddToOrder}
       />
-      <TaskDetail
+      <OrderDetail
         order={cart}
         handleChangeQty={handleChangeQty}
         handleCheckout={handleCheckout}

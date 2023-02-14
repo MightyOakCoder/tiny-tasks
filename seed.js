@@ -1,14 +1,14 @@
 require('dotenv').config();
 require('./config/database');
 
-const ageRange = require('./models/ageRange');
+const category = require('./models/category');
 const Task = require('./models/task');
 
 // IIFE - Immediately Invoked Function Expression
 (async function() {
 
-  await ageRange.deleteMany({});
-  const ageRanges = await ageRange.create([
+  await category.deleteMany({});
+  const categories = await category.create([
     {age: '2+', sortOrder: 10},
     {age: '4+', sortOrder: 20},
     {age: '6+', sortOrder: 30},
@@ -19,16 +19,16 @@ const Task = require('./models/task');
 
   await Task.deleteMany({});
   const tasks = await Task.create([
-    {chore: 'Put Toys Away', ageRange: ageRanges[0], points: 2},
-    {chore: 'Stack/Put Away Books', ageRange: ageRanges[0], points: 2},
-    {chore: 'Put Trash in Garbage and ReCycling', ageRange: ageRanges[0], points: 2},
-    {chore: 'Wipe Up Spills', ageRange: ageRanges[0], points: 2},
-    {chore: 'Help Get Clothes From Dryer', ageRange: ageRanges[0], points: 2},
-    {chore: 'Tidy Up Their Room', ageRange: ageRanges[1], points: 2},
-    {chore: 'Set Table', ageRange: ageRanges[1], points: 2},
-    {chore: 'Sort Laundry By Family Member', ageRange: ageRanges[1], points: 2},
-    {chore: 'Bring Stuff In From Car', ageRange: ageRanges[1], points: 2},
-    {chore: 'Use A HAnd-Held Vacuum', ageRange: ageRanges[1], points: 2},
+    {chore: 'Put Toys Away', category: categories[0], points: 2},
+    {chore: 'Stack/Put Away Books', category: categories[0], points: 2},
+    {chore: 'Put Trash in Garbage and ReCycling', category: categories[0], points: 2},
+    {chore: 'Wipe Up Spills', category: categories[0], points: 2},
+    {chore: 'Help Get Clothes From Dryer', category: categories[0], points: 2},
+    {chore: 'Tidy Up Their Room', category: categories[1], points: 2},
+    {chore: 'Set Table', category: categories[1], points: 2},
+    {chore: 'Sort Laundry By Family Member', category: categories[1], points: 2},
+    {chore: 'Bring Stuff In From Car', category: categories[1], points: 2},
+    {chore: 'Use A HAnd-Held Vacuum', category: categories[1], points: 2},
   ]);
 
   console.log(tasks)

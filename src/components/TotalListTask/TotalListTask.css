@@ -24,7 +24,7 @@
     color: var(--text-light);
   }
   
-  .TotalListTask .name {
+  .TotalListTask .chore {
     font-size: 2vw;
     text-align: center;
     color: var(--text-light);
