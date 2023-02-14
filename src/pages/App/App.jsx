@@ -3,26 +3,23 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import NewChildPage from '../NewChildPage/NewChildPage';
-import ChildPage from '../ChildPage/ChildPage';
+// import TaskListItem from '../../pages/TaskListItem/TaskListItem';
+import TaskList from '../../pages/TaskList/TaskList';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
+  // function addTask(newTask) {
+  //   setTasks([...tasks, newTask]);
+  // }
+
   const [user, setUser] = useState(getUser());
+  const [tasks, setTasks] = useState([]);
+
   return (
     <main className="App">
-      { user ?
-        <>
-          <NavBar user={user} setUser={setUser} />
-          <Routes>
-            {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-            <Route path="/children/new" element={<NewChildPage />} />
-            <Route path="/children" element={<ChildPage />} />
-          </Routes>
-        </>
-        :
-        <AuthPage setUser={setUser} />
-      }
+      <NavBar user={user} setUser={setUser} />
+        <h1>Welcome!</h1>
+        <TaskList tasks={tasks} />
     </main>
   );
 }
