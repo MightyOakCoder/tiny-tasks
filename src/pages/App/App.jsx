@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 // import TaskListItem from '../../pages/TaskListItem/TaskListItem';
 import TaskList from '../../pages/TaskList/TaskList';
-import NavBar from '../../components/NavBar/NavBar';
+import TaskHistoryPage from '../../pages/TaskHistoryPage/TaskHistoryPage';
 
 export default function App() {
-  // function addTask(newTask) {
-  //   setTasks([...tasks, newTask]);
-  // }
-
   const [user, setUser] = useState(getUser());
-  const [tasks, setTasks] = useState([]);
-
   return (
     <main className="App">
-      <NavBar user={user} setUser={setUser} />
-        <h1>Welcome!</h1>
-        <TaskList tasks={tasks} />
+      { user ?
+        <Routes>
+          {/* client-side route that renders the component instance if the path matches the url in the address bar */}
+          <Route path="/tasks/new" element={<TaskList user={user} setUser={setUser} />} />
+          <Route path="/tasks" element={<TaskHistoryPage />} />
+          {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
+          <Route path="/*" element={<Navigate to="/tasks/new" />} />
+        </Routes>
+        :
+        <AuthPage setUser={setUser} />
+      }
     </main>
   );
 }
