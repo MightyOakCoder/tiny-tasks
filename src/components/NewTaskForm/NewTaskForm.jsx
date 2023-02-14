@@ -29,7 +29,7 @@ export default function NewTaskForm({ addTask }) {
         <input
           name="task"
           onChange={handleChange}
-          value={newTask.task}
+          value={newTask.chore}
           placeholder=""
         />
         <br/>

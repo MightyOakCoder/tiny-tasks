@@ -9,7 +9,7 @@ import TaskDetail from '../../components/TaskDetail/TaskDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default function TaskList({ user, setUser }) {
-  const [totalTasks, settotalTasks] = useState([]);
+  const [totalTasks, setTotalTasks] = useState([]);
   const [activeAge, setActiveAge] = useState('');
   const [cart, setCart] = useState(null);
   // Obtain a ref object
@@ -24,11 +24,11 @@ export default function TaskList({ user, setUser }) {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();
       ageRangesRef.current = tasks.reduce((ages, task) => {
-        const age = task.ageRange.task;
+        const age = task.ageRange.chore;
         return ages.includes(age) ? ages : [...ages, age]
       }, []);
       setActiveAge(ageRangesRef.current[1]);
-      settotalTasks(tasks);
+      setTotalTasks(tasks);
     }
     getTasks();
 
@@ -63,7 +63,7 @@ export default function TaskList({ user, setUser }) {
   }
 
   return (
-    <main className="NewOrderPage">
+    <main className="TaskList">
       <aside>
           <AgeRangeList
           ageRanges={ageRangesRef.current}
@@ -74,7 +74,7 @@ export default function TaskList({ user, setUser }) {
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <TotalList
-        totalTasks={totalTasks.filter(task => task.ageRange.task === activeAge)}
+        totalTasks={totalTasks.filter(task => task.ageRange.chore === activeAge)}
         handleAddToOrder={handleAddToOrder}
       />
       <TaskDetail

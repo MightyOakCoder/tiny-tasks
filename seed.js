@@ -19,16 +19,16 @@ const Task = require('./models/task');
 
   await Task.deleteMany({});
   const tasks = await Task.create([
-    {task: 'Put Toys Away', ageRange: ageRanges[0], points: 2},
-    {task: 'Stack/Put Away Books', ageRange: ageRanges[0], points: 2},
-    {task: 'Put Trash in Garbage and ReCycling', ageRange: ageRanges[0], points: 2},
-    {task: 'Wipe Up Spills', ageRange: ageRanges[0], points: 2},
-    {task: 'Help Get Clothes From Dryer', ageRange: ageRanges[0], points: 2},
-    {task: 'Tidy Up Their Room', ageRange: ageRanges[1], points: 2},
-    {task: 'Set Table', ageRange: ageRanges[1], points: 2},
-    {task: 'Sort Laundry By Family Member', ageRange: ageRanges[1], points: 2},
-    {task: 'Bring Stuff In From Car', ageRange: ageRanges[1], points: 2},
-    {task: 'Use A HAnd-Held Vacuum', ageRange: ageRanges[1], points: 2},
+    {chore: 'Put Toys Away', ageRange: ageRanges[0], points: 2},
+    {chore: 'Stack/Put Away Books', ageRange: ageRanges[0], points: 2},
+    {chore: 'Put Trash in Garbage and ReCycling', ageRange: ageRanges[0], points: 2},
+    {chore: 'Wipe Up Spills', ageRange: ageRanges[0], points: 2},
+    {chore: 'Help Get Clothes From Dryer', ageRange: ageRanges[0], points: 2},
+    {chore: 'Tidy Up Their Room', ageRange: ageRanges[1], points: 2},
+    {chore: 'Set Table', ageRange: ageRanges[1], points: 2},
+    {chore: 'Sort Laundry By Family Member', ageRange: ageRanges[1], points: 2},
+    {chore: 'Bring Stuff In From Car', ageRange: ageRanges[1], points: 2},
+    {chore: 'Use A HAnd-Held Vacuum', ageRange: ageRanges[1], points: 2},
   ]);
 
   console.log(tasks)

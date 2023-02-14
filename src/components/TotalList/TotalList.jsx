@@ -10,7 +10,7 @@ export default function TotalList({ totalTasks }) {
     />
   );
   return (
-    <main className="TaskList">
+    <main className="TotalList">
       {tasks}
     </main>
   );
