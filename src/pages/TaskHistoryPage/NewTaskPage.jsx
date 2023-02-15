@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './NewTaskPage.css';
 
-export default function NewTaskForm({ setTotalTasks }) {
+export default function NewTaskForm({ addTask }) {
   
   
  const [newTask, setNewTask] = useState({
@@ -10,16 +10,6 @@ export default function NewTaskForm({ setTotalTasks }) {
     points: 2
   });
 
-
-
-  function handleAddTask(evt) {
-    evt.preventDefault();
-    setTotalTasks((prev) => {
-     return [...prev, newTask]
-    });
-    setNewTask({ chore: "", category: "", points: 2 });
-  }
-
   function handleChange(evt) {
     console.log(evt)
     setNewTask({ ...newTask, [evt.target.name]:evt.target.value });
@@ -27,7 +17,7 @@ export default function NewTaskForm({ setTotalTasks }) {
 
   return (
     <div className="NewTaskPage">
-      <form onSubmit={handleAddTask}>
+      <form onSubmit={handleAddSubmit}>
         <label>Task</label>
         <input
           type="text"

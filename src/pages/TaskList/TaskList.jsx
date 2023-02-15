@@ -8,42 +8,41 @@ import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-export default function TaskList({ user, setUser }) {
-  const [totalTasks, setTotalTasks] = useState([]);
-  const [activeCat, setActiveCat] = useState('');
+export default function TaskList({ user, setUser, totalTasks, activeCat, setActiveCat, categoriesRef }) {
+  // const [totalTasks, setTotalTasks] = useState([]);
+  // console.log(totalTasks)
+  // const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
-  // Obtain a ref object
-  const categoriesRef = useRef([]);
+  // // Obtain a ref object
+  // const categoriesRef = useRef([]);
   const navigate = useNavigate();
 
   // useEffect(function() {
   //   console.log('NewOrderPage rendered');
   // });
  
-  
-  useEffect(function() {
-    async function getTasks() {
-      const tasks = await tasksAPI.getAll();
-      categoriesRef.current = tasks.reduce((cats, task) => {
-        const cat = task.category.age;
-        return cats.includes(cat) ? cats : [...cats, cat]
-      }, []);
-      setActiveCat(categoriesRef.current[1]);
-      setTotalTasks(tasks);
-    }
-    getTasks();
+  // useEffect(function() {
+  //   async function getTasks() {
+  //     const tasks = await tasksAPI.getAll();
+  //     categoriesRef.current = tasks.reduce((cats, task) => {
+  //       const cat = task.category.age;
+  //       return cats.includes(cat) ? cats : [...cats, cat]
+  //     }, []);
+  //     setActiveCat(categoriesRef.current[1]);
+  //     setTotalTasks(tasks);
+  //   }
+  //   getTasks();
 
-    // Load the user's cart (the unpaid order for that user)
-    async function getCart() {
-      const cart = await ordersAPI.getCart();
-      setCart(cart);
-    }
-    getCart();
-  }, []);
+  //   // Load the user's cart (the unpaid order for that user)
+  //   async function getCart() {
+  //     const cart = await ordersAPI.getCart();
+  //     setCart(cart);
+  //   }
+  //   getCart();
+  // }, []);
   // the empty dependency array above will result in 
   // the function running after the FIRST render
-  // only
-
+  // only 
   /*--- Event Handlers ---*/
 
   async function handleAddToOrder(taskId) {
