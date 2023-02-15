@@ -19,6 +19,7 @@ export default function TaskList({ user, setUser }) {
   // useEffect(function() {
   //   console.log('NewOrderPage rendered');
   // });
+ 
   
   useEffect(function() {
     async function getTasks() {
@@ -66,10 +67,10 @@ export default function TaskList({ user, setUser }) {
     <main className="TaskList">
       <aside>
           <CategoryList
-          categories={categoriesRef.current}
-          activeCat={activeCat}
-          setActiveCat={setActiveCat}
-        />
+            categories={categoriesRef.current}
+            activeCat={activeCat}
+            setActiveCat={setActiveCat}
+          />
         <Link to="/tasks/new" className="button btn-sm">+ ADD A NEW TASK</Link>
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
         <UserLogOut user={user} setUser={setUser} />

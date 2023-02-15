@@ -2,7 +2,8 @@ import React from 'react';
 import './TotalListTask.css';
 
 export default function TotalListTask({ totalTask }) {
-  return (
+    
+    return (
     <div className="TotalListTask">
       <div className="task">{totalTask.chore}</div>
       <div className="points">

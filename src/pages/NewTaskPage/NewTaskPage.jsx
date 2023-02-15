@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import './NewTaskForm.css';
+import './NewTaskPage.css';
 
 export default function NewTaskForm({ addTask }) {
-  const [newTask, setNewTask] = useState({
+  
+  
+ const [newTask, setNewTask] = useState({
     chore: "",
     category: "",
     points: 2
   });
 
+
+
   function handleAddTask(evt) {
     evt.preventDefault();
-    if (newTask.name.trim() !== "") {
-      addTask(newTask);
-      setNewTask({ chore: "", category: "", points: 2 });
-    }
+    addTask(newTask);
+    setNewTask({ chore: "", category: "", points: 2 });
   }
 
   function handleChange(evt) {
@@ -22,10 +24,11 @@ export default function NewTaskForm({ addTask }) {
   }
 
   return (
-    <div className="NewTaskForm">
+    <div className="NewTaskPage">
       <form onSubmit={handleAddTask}>
         <label>Task</label>
         <input
+          type="text"
           name="chore"
           onChange={handleChange}
           value={newTask.chore}
@@ -59,7 +62,7 @@ export default function NewTaskForm({ addTask }) {
           <option value={3}>3</option>
         </select>
         <br/>
-        <button>ADD TASK</button>
+        <input type="submit" />
       </form>
     </div>
   );
