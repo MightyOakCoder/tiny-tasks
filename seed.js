@@ -1,14 +1,14 @@
 require('dotenv').config();
 require('./config/database');
 
-const category = require('./models/category');
+const Category = require('./models/category');
 const Task = require('./models/task');
 
 // IIFE - Immediately Invoked Function Expression
 (async function() {
 
-  await category.deleteMany({});
-  const categories = await category.create([
+  await Category.deleteMany({});
+  const categories = await Category.create([
     {age: '2+', sortOrder: 10},
     {age: '4+', sortOrder: 20},
     {age: '6+', sortOrder: 30},

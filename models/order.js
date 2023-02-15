@@ -14,7 +14,7 @@ const lineItemSchema = new Schema({
 })
 
 lineItemSchema.virtual('extPrice').get(function() {
-    return this.qty * this.task.points
+    return this.qty * this.Task.points
 })
 
 const orderSchema = new Schema({

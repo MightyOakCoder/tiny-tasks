@@ -10,7 +10,7 @@ export default function TaskHistoryPage() {
   
     return (
       <>
-        <h1>TaskHistoryPage</h1>
+        <h1>New Task Page</h1>
         <button onClick={handleCheckToken}>Check When My Login Expires</button>
       </>
     );

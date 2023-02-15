@@ -24,7 +24,7 @@ export default function TaskList({ user, setUser }) {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();
       categoriesRef.current = tasks.reduce((cats, task) => {
-        const cat = task.category.chore;
+        const cat = task.category.age;
         return cats.includes(cat) ? cats : [...cats, cat]
       }, []);
       setActiveCat(categoriesRef.current[1]);
@@ -70,11 +70,12 @@ export default function TaskList({ user, setUser }) {
           activeCat={activeCat}
           setActiveCat={setActiveCat}
         />
+        <Link to="/tasks/new" className="button btn-sm">+ ADD A NEW TASK</Link>
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <TotalList
-        totalTasks={totalTasks.filter(task => task.category.chore === activeCat)}
+        totalTasks={totalTasks.filter(task => task.category.age === activeCat)}
         handleAddToOrder={handleAddToOrder}
       />
       <OrderDetail
