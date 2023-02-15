@@ -8,6 +8,7 @@ export default function NewTaskForm({ addTask }) {
     points: 2
   });
 
+
   function handleAddTask(evt) {
     evt.preventDefault();
     if (newTask.name.trim() !== "") {
