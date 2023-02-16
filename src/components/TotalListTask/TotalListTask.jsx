@@ -1,7 +1,7 @@
 import React from 'react';
 import './TotalListTask.css';
 
-export default function TotalListTask({ totalTask, handleAddToOrder }) {
+export default function TotalListTask({ totalTask, handleAddToOrder, handleDeleteTask }) {
     
     return (
     <div className="TotalListTask">
@@ -11,6 +11,8 @@ export default function TotalListTask({ totalTask, handleAddToOrder }) {
         <button className="btn-sm" onClick={() => handleAddToOrder(totalTask._id)}>
           ADD
         </button>
+        <button class="btn-sm" onClick={() => handleDeleteTask(totalTask._id)}>
+          DELETE</button>
       </div>
     </div>
   );

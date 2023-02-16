@@ -11,10 +11,10 @@ import * as tasksAPI from '../../utilities/tasks-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const categoriesRef = useRef([]);
   const [totalTasks, setTotalTasks] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
+  const categoriesRef = useRef([]);
  
   useEffect(function() {
     async function getTasks() {
@@ -28,7 +28,12 @@ export default function App() {
     }
     getTasks();
   }, []);
-  
+
+  removeTask(task){
+    this.setState({
+        task: this.state.task.filter(el => el !== task)
+    })
+}
   return (
     <main className="App">
       { user ?
@@ -46,7 +51,7 @@ export default function App() {
               setCart={setCart}
              />} 
           />
-          <Route path="/tasks/new" element={<NewTaskPage totalTasks={totalTasks} setTotalTasks={setTotalTasks} />} />
+          <Route path="/tasks/new" element={<NewTaskPage totalTasks={totalTasks} setTotalTasks={setTotalTasks} tasks={this.state.tasks} removeTask={removeTask}/>} />
           {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
           <Route path="/*" element={<Navigate to="/tasks/" />} />
         </Routes>

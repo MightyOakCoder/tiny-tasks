@@ -26,3 +26,7 @@ export function checkout() {
   return sendRequest(`${BASE_URL}/cart/checkout`, 'POST');
 }
 
+export function removeTaskFromCart(taskId) {
+  return sendRequest(`${BASE_URL}/cart/tasks/${taskId}`, 'DELETE');
+}
+

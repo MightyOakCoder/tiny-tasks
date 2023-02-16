@@ -6,5 +6,5 @@ router.get('/', tasksCtrl.index);
 router.get('/:id', tasksCtrl.show);
 router.post('/', tasksCtrl.create);
 router.get("/new", tasksCtrl.new)
-
+router.delete('/:id', tasksCtrl.delete);
 module.exports = router;

@@ -17,3 +17,7 @@ export function createTaskList() {
 export function newTask(payload) {
   return sendRequest(BASE_URL, "POST", payload);
 }
+
+// export function deleteTask(payload) {
+//   return sendRequest(BASE_URL, 'DELETE', payload);
+// }

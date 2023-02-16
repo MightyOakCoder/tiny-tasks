@@ -4,7 +4,8 @@ module.exports = {
   index,
   show,
   new: newTask,
-  create
+  create,
+  delete: deleteTask
 };
 
 async function index(req, res) {
@@ -36,4 +37,12 @@ function create(req, res) {
       return res.status(500).send(err);}
     res.status(200).send(task);
   });
+}
+
+function deleteTask(req, res) {
+  Item.findOneAndDelete(
+      {_id: req.params.id, userAdding: req.user._id}, function(err) {
+          res.redirect("/tasks");
+      }
+  );
 }

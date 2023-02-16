@@ -45,9 +45,19 @@ export default function TaskList({ user, setUser, totalTasks, activeCat, setActi
   /*--- Event Handlers ---*/
 
   async function handleAddToOrder(taskId) {
-   alert(`add task: ${taskId}`);
+   const updatedCart = await ordersAPI.addTaskToCart(taskId);
+   setCart(updatedCart);
   }
 
+  // async function handleDeleteTask(taskId) {
+  //   const updatedCart = await ordersAPI.removeTaskFromCart(taskId);
+  //   setCart(updatedCart);
+  // }
+
+  const handleDeleteTask = totalTasks => {
+    updateList(list.filter(task => ))
+  }
+  
   async function handleChangeQty(taskId, newQty) {
     const updatedCart = await ordersAPI.setTaskQtyInCart(taskId, newQty);
     setCart(updatedCart);
@@ -77,11 +87,10 @@ export default function TaskList({ user, setUser, totalTasks, activeCat, setActi
       <TotalList
         totalTasks={totalTasks.filter(task => task.category.age === activeCat)}
         handleAddToOrder={handleAddToOrder}
+        // handleDeleteTask={handleDeleteTask}
       />
       <OrderDetail
         order={cart}
-        handleChangeQty={handleChangeQty}
-        handleCheckout={handleCheckout}
       />
     </main>
   );
