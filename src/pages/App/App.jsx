@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
@@ -15,8 +15,7 @@ export default function App() {
   const [totalTasks, setTotalTasks] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
-  const navigate = useNavigate();
-
+  
   useEffect(function() {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();
@@ -36,19 +35,16 @@ export default function App() {
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
           <Route path="/tasks" element={
-          <TaskList 
-            user={user} 
-            setUser={setUser} 
-            totalTasks={totalTasks} 
-            setTotalTasks={setTotalTasks}
-            activeCat={activeCat} 
-            setActiveCat={setActiveCat} 
-            categoriesRef={categoriesRef} 
-            cart={cart} 
-            setCart={setCart} 
-            navigate={navigate}
-            
-            />} 
+            <TaskList 
+              user={user} 
+              setUser={setUser} 
+              totalTasks={totalTasks} 
+              activeCat={activeCat} 
+              setActiveCat={setActiveCat} 
+              categoriesRef={categoriesRef} 
+              cart={cart}
+              setCart={setCart}
+             />} 
           />
           <Route path="/tasks/new" element={<NewTaskPage totalTasks={totalTasks} setTotalTasks={setTotalTasks} />} />
           {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}

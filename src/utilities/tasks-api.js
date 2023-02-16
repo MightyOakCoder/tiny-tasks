@@ -13,3 +13,7 @@ export function getById(id) {
 export function createTaskList() {
   return sendRequest(BASE_URL);
 }
+
+export function newTask(payload) {
+  return sendRequest(BASE_URL, "POST", payload);
+}

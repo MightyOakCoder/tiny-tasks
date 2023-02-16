@@ -1,35 +1,47 @@
 import React, { useState } from "react";
 import './NewTaskPage.css';
+import { getToken } from '../../utilities/users-service';
+import * as tasksAPI from '../../utilities/tasks-api';
 
 export default function NewTaskForm({ setTotalTasks }) {
-  const [newTask, setNewTask] = useState({
+  
+  
+ const [newTask, setNewTask] = useState({
     chore: "",
     category: "",
     points: 2
   });
+
+  async function handleAddTask(evt) {
+    evt.preventDefault();
+    setTotalTasks((prev) => {
+     return [...prev, newTask]
+    });
+    // setNewTask({ chore: "sweep", category: {age: '2+', sortOrder: 10}, points: 2 });
+    console.log(newTask)
+    const result = await tasksAPI.newTask(newTask)
+  // fetch('/api/tasks', {
+    //   method: "POST",
+    //   headers: {"Content-Type": "application/json" },
+    //   body: JSON.stringify(newTask)
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   })
+  }
 
   function handleChange(evt) {
     console.log(evt)
     setNewTask({ ...newTask, [evt.target.name]:evt.target.value });
   }
 
-  function handleAddTask(evt) {
-    evt.preventDefault();
-    setTotalTasks((prev) => {
-     return [...prev, newTask]
-    });
-    setNewTask({ chore: "", category: "", points: 2 });
-  
-    fetch('/new', {
-      method: 'POST', 
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newTask),
-  });
-}
-
   return (
     <div className="NewTaskPage">
-      <form onSubmit={handleAddTask}>
+      <form>
         <label>Task</label>
         <input
           type="text"
@@ -39,7 +51,7 @@ export default function NewTaskForm({ setTotalTasks }) {
           placeholder=""
         />
         <br/>
-        <label>Age Range</label>
+        <label>Category</label>
         <select
           name="category"
           defaultValue=""
@@ -66,7 +78,7 @@ export default function NewTaskForm({ setTotalTasks }) {
           <option value={3}>3</option>
         </select>
         <br/>
-        <input type="submit" />
+        <button onClick={handleAddTask}>Add New Task</button>
       </form>
     </div>
   );

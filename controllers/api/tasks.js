@@ -20,17 +20,20 @@ async function show(req, res) {
 }
 
 function newTask(req, res) {
-  res.render("tasks/new", { title: "Add Task" });
+  res.render("tasks/new", { title: "Add Tasks" });
 };
 
 function create(req, res) {
   const task = new Task(req.body);
+  console.log("YAY! WE made it to the for looop")
   for (let key in req.body) {
-      if (req.body[key] === "") delete req.body[key];
+    if (req.body[key] === "") delete req.body[key];
   }
-      task.userAdding = req.user._id;
-  task.save(function(err) {
-      if (err) return res.redirect("tasks/new");
-      res.redirect(`/tasks/${task._id}`);
+  task.userAdding = req.user._id;
+  task.save(function (err) {
+    if (err) {
+      console.log(err)
+      return res.status(500).send(err);}
+    res.status(200).send(task);
   });
 }

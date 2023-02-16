@@ -13,6 +13,7 @@ export default function TotalList({ totalTasks, handleAddToOrder }) {
   return (
     <main className="TotalList">
       {tasks}
+      
     </main>
   );
 }
