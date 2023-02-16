@@ -21,6 +21,7 @@ export default function TaskList({ user, setUser, totalTasks, activeCat, setActi
     const updatedCart = await ordersAPI.removeTaskFromCart(taskId);
     setCart(updatedCart);
   }
+  
 
   async function handleChangeQty(taskId, newQty) {
     const updatedCart = await ordersAPI.setTaskQtyInCart(taskId, newQty);
