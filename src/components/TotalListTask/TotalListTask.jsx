@@ -11,7 +11,7 @@ export default function TotalListTask({ totalTask, handleAddToOrder, handleDelet
         <button className="btn-sm" onClick={() => handleAddToOrder(totalTask._id)}>
           ADD
         </button>
-        <button class="btn-sm" onClick={() => handleDeleteTask(totalTask._id)}>
+        <button className="btn-sm" onClick={() => handleDeleteTask(totalTask._id)}>
           DELETE</button>
       </div>
     </div>

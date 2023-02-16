@@ -9,8 +9,9 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
   const lineItems = order.lineItems.map(task =>
     <LineItem
       lineItem={task}
-      isPaid={order.isPaid}
+      isDone={order.isDone}
       handleChangeQty={handleChangeQty}
+      // handleDeleteTask={handleDeleteTask}
       key={task._id}
     />
   );
@@ -18,7 +19,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
   return (
     <div className="OrderDetail">
       <div className="section-heading">
-        {order.isPaid ?
+        {order.isDone ?
           <span>ORDER <span className="smaller">{order.orderId}</span></span>
           :
           <span>NEW ORDER</span>
@@ -30,7 +31,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
           <>
             {lineItems}
             <section className="total">
-              {order.isPaid ?
+              {order.isDone ?
                 <span className="right">TOTAL&nbsp;&nbsp;</span>
                 :
                 <button

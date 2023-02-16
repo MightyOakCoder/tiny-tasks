@@ -14,13 +14,13 @@ const lineItemSchema = new Schema({
 })
 
 lineItemSchema.virtual('extPrice').get(function() {
-    return this.qty * this.Task.points
+    return this.qty * this.task.points
 })
 
 const orderSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     lineItems: [lineItemSchema],
-    isPaid: {
+    isDone: {
         type: Boolean,
         default: false
     }
@@ -43,15 +43,15 @@ orderSchema.virtual('orderId').get(function() {
 
 orderSchema.statics.getCart = function(userId) {
     return this.findOneAndUpdate(
-        { user: userId, isPaid: false },
+        { user: userId, isDone: false },
         { user: userId },
         { upsert: true, new: true }
     )
 }
 
-orderSchema.methods.addItemToCart = async function(taskId) {
+orderSchema.methods.addTaskToCart = async function(taskId) {
     const cart = this
-    const lineItem = cart.lineItems.find(lineItem => lineItem.task._id.equals(itemId))
+    const lineItem = cart.lineItems.find(lineItem => lineItem.task._id.equals(taskId))
     if (lineItem) {
         lineItem.qty += 1
     } else {

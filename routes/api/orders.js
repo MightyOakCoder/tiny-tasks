@@ -11,4 +11,6 @@ router.post('/cart/checkout', ordersCtrl.checkout);
 // POST /api/orders/cart/qty
 router.put('/cart/qty', ordersCtrl.setTaskQtyInCart);
 
+router.delete('/cart/tasks/:id', ordersCtrl.delete);
+
 module.exports = router;

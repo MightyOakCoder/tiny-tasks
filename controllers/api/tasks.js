@@ -5,8 +5,7 @@ module.exports = {
   show,
   new: newTask,
   create,
-  delete: deleteTask
-};
+ };
 
 async function index(req, res) {
   const tasks = await Task.find({}).sort('chore').populate('category').exec();
@@ -39,10 +38,3 @@ function create(req, res) {
   });
 }
 
-function deleteTask(req, res) {
-  Item.findOneAndDelete(
-      {_id: req.params.id, userAdding: req.user._id}, function(err) {
-          res.redirect("/tasks");
-      }
-  );
-}

@@ -29,11 +29,11 @@ export default function App() {
     getTasks();
   }, []);
 
-  removeTask(task){
-    this.setState({
-        task: this.state.task.filter(el => el !== task)
-    })
-}
+  // removeTask(task){
+  //   this.setState({
+  //       task: this.state.task.filter(el => el !== task)
+    // })
+
   return (
     <main className="App">
       { user ?
@@ -51,7 +51,7 @@ export default function App() {
               setCart={setCart}
              />} 
           />
-          <Route path="/tasks/new" element={<NewTaskPage totalTasks={totalTasks} setTotalTasks={setTotalTasks} tasks={this.state.tasks} removeTask={removeTask}/>} />
+          <Route path="/tasks/new" element={<NewTaskPage totalTasks={totalTasks} setTotalTasks={setTotalTasks} />} />
           {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
           <Route path="/*" element={<Navigate to="/tasks/" />} />
         </Routes>

@@ -6,6 +6,7 @@ module.exports = {
   addToCart,
   setTaskQtyInCart,
   checkout,
+  delete: deleteTask
 };
 
 
@@ -20,21 +21,27 @@ async function addToCart(req, res) {
   const cart = await Order.getCart(req.user._id);
   // The promise resolves to the document, which we already have
   // in the cart variable, so no need to create another variable...
-  await cart.addItemToCart(req.params.id); 
+  await cart.addTaskToCart(req.params.id); 
   res.json(cart);
 }
 
 // Updates an item's qty in the cart
 async function setTaskQtyInCart(req, res) {
   const cart = await Order.getCart(req.user._id);
-  await cart.setItemQty(req.body.itemId, req.body.newQty);
+  await cart.setTaskQty(req.body.taskId, req.body.newQty);
   res.json(cart)
 }
 
-// Update the cart's isPaid property to true
+// Update the cart's isDone property to true
 async function checkout(req, res) {
 const cart = await Order.getCart(req.user._id);
-cart.isPaid = true;
+cart.isDone = true;
 await cart.save();
 res.json(cart);
+}
+
+async function deleteTask(req, res) {
+  const cart = await Order.getCart(req.user._id);
+  await cart.removeTaskFromCart(req.params.id); 
+  res.json(cart);
 }
