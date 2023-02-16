@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import './NewTaskPage.css';
 
 export default function NewTaskForm({ setTotalTasks }) {
-  
-  
- const [newTask, setNewTask] = useState({
+  const [newTask, setNewTask] = useState({
     chore: "",
     category: "",
     points: 2
   });
 
-
+  function handleChange(evt) {
+    console.log(evt)
+    setNewTask({ ...newTask, [evt.target.name]:evt.target.value });
+  }
 
   function handleAddTask(evt) {
     evt.preventDefault();
@@ -18,12 +19,13 @@ export default function NewTaskForm({ setTotalTasks }) {
      return [...prev, newTask]
     });
     setNewTask({ chore: "", category: "", points: 2 });
-  }
-
-  function handleChange(evt) {
-    console.log(evt)
-    setNewTask({ ...newTask, [evt.target.name]:evt.target.value });
-  }
+  
+    fetch('/new', {
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newTask),
+  });
+}
 
   return (
     <div className="NewTaskPage">

@@ -12,11 +12,11 @@ import * as tasksAPI from '../../utilities/tasks-api';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const categoriesRef = useRef([]);
-  const navigate = useNavigate();
   const [totalTasks, setTotalTasks] = useState([]);
   const [activeCat, setActiveCat] = useState('');
-  
-  
+  const [cart, setCart] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(function() {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();
@@ -35,7 +35,21 @@ export default function App() {
       { user ?
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-          <Route path="/tasks" element={<TaskList user={user} setUser={setUser} totalTasks={totalTasks} activeCat={activeCat} setActiveCat={setActiveCat} categoriesRef={categoriesRef} />} />
+          <Route path="/tasks" element={
+          <TaskList 
+            user={user} 
+            setUser={setUser} 
+            totalTasks={totalTasks} 
+            setTotalTasks={setTotalTasks}
+            activeCat={activeCat} 
+            setActiveCat={setActiveCat} 
+            categoriesRef={categoriesRef} 
+            cart={cart} 
+            setCart={setCart} 
+            navigate={navigate}
+            
+            />} 
+          />
           <Route path="/tasks/new" element={<NewTaskPage totalTasks={totalTasks} setTotalTasks={setTotalTasks} />} />
           {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
           <Route path="/*" element={<Navigate to="/tasks/" />} />

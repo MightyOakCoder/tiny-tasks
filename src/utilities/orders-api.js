@@ -8,7 +8,7 @@ export function getCart() {
 }
 
 // Add an item to the cart
-export function addTaskToCart(taskId) {
+export function addToCart(taskId) {
   // Just send itemId for best security (no pricing)
   return sendRequest(`${BASE_URL}/cart/tasks/${taskId}`, 'POST');
 }

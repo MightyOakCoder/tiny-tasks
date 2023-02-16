@@ -1,7 +1,7 @@
 import React from 'react';
 import './LineItem.css';
 
-export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
+export default function LineItem({ lineItem, isPaid }) {
   return (
     <div className="LineItem">
             <div className="flex-ctr-ctr flex-col">
