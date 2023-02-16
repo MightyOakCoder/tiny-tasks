@@ -19,16 +19,16 @@ const Task = require('./models/task');
 
   await Task.deleteMany({});
   const tasks = await Task.create([
-    {chore: 'Put Toys Away', category: categories[0], points: 2},
-    {chore: 'Stack/Put Away Books', category: categories[0], points: 2},
-    {chore: 'Put Trash in Garbage and ReCycling', category: categories[0], points: 2},
-    {chore: 'Wipe Up Spills', category: categories[0], points: 2},
-    {chore: 'Help Get Clothes From Dryer', category: categories[0], points: 2},
-    {chore: 'Tidy Up Their Room', category: categories[1], points: 2},
-    {chore: 'Set Table', category: categories[1], points: 2},
-    {chore: 'Sort Laundry By Family Member', category: categories[1], points: 2},
+    {chore: 'Put Toys Away', category: categories[0], points: 1},
+    {chore: 'Stack/Put Away Books', category: categories[0], points: 1},
+    {chore: 'Put Trash in Garbage and Recycling', category: categories[0], points: 2},
+    {chore: 'Wipe Up Spills', category: categories[0], points: 3},
+    {chore: 'Help Get Clothes From Dryer', category: categories[0], points: 3},
+    {chore: 'Tidy Up Their Room', category: categories[1], points: 1},
     {chore: 'Bring Stuff In From Car', category: categories[1], points: 2},
-    {chore: 'Use A HAnd-Held Vacuum', category: categories[1], points: 2},
+    {chore: 'Use A Hand-Held Vacuum', category: categories[1], points: 2},
+    {chore: 'Sort Laundry By Family Member', category: categories[1], points: 3},
+    {chore: 'Set Table', category: categories[1], points: 3},
   ]);
 
   console.log(tasks)

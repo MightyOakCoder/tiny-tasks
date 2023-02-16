@@ -5,7 +5,7 @@
     align-items: center;
     margin-bottom: 3vmin;
     padding: 2vmin;
-    color: var(--text-light);
+    color: #3e2217;
     background-color: var(--white);
     border: .1vmin solid var(--tan-3);
     border-radius: 1vmin;
@@ -21,12 +21,12 @@
   .TotalListTask .buy span {
     font-size: 1.7vw;
     text-align: center;
-    color: var(--text-light);
+    color: #3e2217;
   }
   
   .TotalListTask .chore {
     font-size: 2vw;
     text-align: center;
-    color: var(--text-light);
+    color: #3e2217;
   }
   

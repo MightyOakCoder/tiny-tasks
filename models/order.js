@@ -61,6 +61,14 @@ orderSchema.methods.addTaskToCart = async function(taskId) {
     return cart.save()
 }
 
+orderSchema.methods.removeTaskFromCart = async function(taskId) {
+    const cart = this
+    const lineItem = cart.lineItems.find(lineItem => lineItem.task._id.equals(taskId))
+    if (lineItem) {
+        await lineItem.remove()
+    }
+    return cart.save()
+}
 orderSchema.methods.setTaskQty = function(taskId, newQty) {
     // this keyword is bound to the cart (order doc)
     const cart = this;
