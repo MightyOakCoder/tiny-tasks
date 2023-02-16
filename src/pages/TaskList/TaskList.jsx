@@ -58,6 +58,10 @@ export default function TaskList({ user, setUser, totalTasks, activeCat, setActi
     navigate('/orders');
   }
 
+  // async function handleDeleteTask(taskId) {
+  //   setTasks(tasks.filter((t) => t.id !== taskId));
+  // }
+
   return (
     <main className="TaskList">
       <aside>

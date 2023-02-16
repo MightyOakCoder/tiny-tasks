@@ -20,6 +20,7 @@ export default function NewTaskForm({ setTotalTasks }) {
     // setNewTask({ chore: "sweep", category: {age: '2+', sortOrder: 10}, points: 2 });
     console.log(newTask)
     const result = await tasksAPI.newTask(newTask)
+    console.log(result)
   // fetch('/api/tasks', {
     //   method: "POST",
     //   headers: {"Content-Type": "application/json" },
@@ -39,6 +40,13 @@ export default function NewTaskForm({ setTotalTasks }) {
     setNewTask({ ...newTask, [evt.target.name]:evt.target.value });
   }
 
+  function selectFunction(){  
+    var x=0;   
+    for(x=0;x<5;x++){
+    var option = "<option value='" + x + "'>Label " + x + "</option>"
+    document.getElementById('categoryId').innerHTML += option;   
+    } 
+}   
   return (
     <div className="NewTaskPage">
       <form>
@@ -53,17 +61,18 @@ export default function NewTaskForm({ setTotalTasks }) {
         <br/>
         <label>Category</label>
         <select
+          id="categoryId"
           name="category"
           defaultValue=""
           onChange={handleChange}
           value={newTask.category}
         >
-          <option value={2}>2+</option>
-          <option value={4}>4+</option>
-          <option value={6}>6+</option>
-          <option value={8}>8+</option>
-          <option value={10}>10+</option>
-          <option value={12}>12+</option>
+          <option value={"63eda6eeacebbeca9d08b3f2"}>2+</option>
+          <option value={"63eda6eeacebbeca9d08b3f3"}>4+</option>
+          <option value={"63eda6eeacebbeca9d08b3f4"}>6+</option>
+          <option value={"63eda6eeacebbeca9d08b3f5"}>8+</option>
+          <option value={"63eda6eeacebbeca9d08b3f6"}>10+</option>
+          <option value={"63eda6eeacebbeca9d08b3f7"}>12+</option>
         </select>
         <br/>
         <label>Points</label>

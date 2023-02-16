@@ -15,7 +15,7 @@ export default function App() {
   const [totalTasks, setTotalTasks] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
-  
+ 
   useEffect(function() {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();

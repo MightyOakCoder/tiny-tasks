@@ -25,7 +25,7 @@ function newTask(req, res) {
 
 function create(req, res) {
   const task = new Task(req.body);
-  console.log("YAY! WE made it to the for looop")
+  console.log(task)
   for (let key in req.body) {
     if (req.body[key] === "") delete req.body[key];
   }

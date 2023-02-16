@@ -16,7 +16,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
   );
 
   return (
-    <div className="TaskDetail">
+    <div className="OrderDetail">
       <div className="section-heading">
         {order.isPaid ?
           <span>ORDER <span className="smaller">{order.orderId}</span></span>
