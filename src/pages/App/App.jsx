@@ -19,6 +19,7 @@ export default function App() {
   useEffect(function() {
     async function getTasks() {
       const tasks = await tasksAPI.getAll();
+      console.log(tasks)
       categoriesRef.current = tasks.reduce((cats, task) => {
         const cat = task.category.age;
         return cats.includes(cat) ? cats : [...cats, cat]

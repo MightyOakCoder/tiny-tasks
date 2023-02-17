@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './AuthPage.css';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import Logo from '../../components/tLogo/tLogo';
+import Logo from '../../components/Logo/Logo';
 
 export default function AuthPage({ setUser }) {
   const [showSignUp, setShowSignUp] = useState(false);

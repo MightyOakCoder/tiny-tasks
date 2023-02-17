@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import './NewTaskPage.css';
 import { getToken } from '../../utilities/users-service';
 import * as tasksAPI from '../../utilities/tasks-api';
+import { Link, useNavigate } from 'react-router-dom';
+
+
 
 export default function NewTaskForm({ setTotalTasks }) {
-  
+
+  const navigate = useNavigate()
   
  const [newTask, setNewTask] = useState({
     chore: "",
@@ -21,18 +25,7 @@ export default function NewTaskForm({ setTotalTasks }) {
     console.log(newTask)
     const result = await tasksAPI.newTask(newTask)
     console.log(result)
-  // fetch('/api/tasks', {
-    //   method: "POST",
-    //   headers: {"Content-Type": "application/json" },
-    //   body: JSON.stringify(newTask)
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   })
+    navigate("/tasks")
   }
 
   function handleChange(evt) {
@@ -67,12 +60,12 @@ export default function NewTaskForm({ setTotalTasks }) {
           onChange={handleChange}
           value={newTask.category}
         >
-          <option value={"63eda6eeacebbeca9d08b3f2"}>2+</option>
-          <option value={"63eda6eeacebbeca9d08b3f3"}>4+</option>
-          <option value={"63eda6eeacebbeca9d08b3f4"}>6+</option>
-          <option value={"63eda6eeacebbeca9d08b3f5"}>8+</option>
-          <option value={"63eda6eeacebbeca9d08b3f6"}>10+</option>
-          <option value={"63eda6eeacebbeca9d08b3f7"}>12+</option>
+          <option value={"63eefab6fbba5d8d471b20a2"}>2+</option>
+          <option value={"63eefab6fbba5d8d471b20a3"}>4+</option>
+          <option value={"63eefab6fbba5d8d471b20a4"}>6+</option>
+          <option value={"63eefab6fbba5d8d471b20a5"}>8+</option>
+          <option value={"63eefab6fbba5d8d471b20a6"}>10+</option>
+          <option value={"63eefab6fbba5d8d471b20a7"}>12+</option>
         </select>
         <br/>
         <label>Points</label>
@@ -88,6 +81,7 @@ export default function NewTaskForm({ setTotalTasks }) {
         </select>
         <br/>
         <button onClick={handleAddTask}>Add New Task</button>
+        <Link to="/tasks" className="button btn-sm">Return To Task List</Link>
       </form>
     </div>
   );

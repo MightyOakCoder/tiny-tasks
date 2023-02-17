@@ -6,7 +6,7 @@ import TotalList from '../../components/TotalList/TotalList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
-import tLogo from '../../components/tLogo/tLogo';
+import Logo from '../../components/Logo/Logo';
 
 export default function TaskList({ user, setUser, totalTasks, activeCat, setActiveCat, categoriesRef, cart, setCart }) {
   const navigate = useNavigate();
@@ -21,7 +21,6 @@ export default function TaskList({ user, setUser, totalTasks, activeCat, setActi
     const updatedCart = await ordersAPI.removeTaskFromCart(taskId);
     setCart(updatedCart);
   }
-  
 
   async function handleChangeQty(taskId, newQty) {
     const updatedCart = await ordersAPI.setTaskQtyInCart(taskId, newQty);
@@ -36,14 +35,13 @@ export default function TaskList({ user, setUser, totalTasks, activeCat, setActi
   return (
     <main className="TaskList">
       <aside>
-        <tLogo />
+        <Logo />
           <CategoryList
             categories={categoriesRef.current}
             activeCat={activeCat}
             setActiveCat={setActiveCat}
           />
         <Link to="/tasks/new" className="button btn-sm">+ ADD A NEW TASK</Link>
-        <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <TotalList
