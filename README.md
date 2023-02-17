@@ -35,8 +35,8 @@ This was my most challenging project to date. Some of the biggest challenges inc
     "You've earned your reward!"
 
 ## Wireframes:
-![wireframe.png](https://iili.io/HGqcYox.png)
+![wireframe](https://iili.io/HGqcYox.png)
 
 ## Entity Relationship Diagram:
-![erd.png](https://iili.io/HG30l49.png)
+![erd](https://iili.io/HG30l49.png)
 
