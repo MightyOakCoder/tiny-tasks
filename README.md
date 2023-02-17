@@ -13,7 +13,11 @@ This app also includes a fun points & rewards system to help little ones stay mo
 - JSX
 - CSS
 
+## Deployed Link:
+[Tiny Tasks](http://tiny-tasks-app.herokuapp.com)
+
 ## Trello Board:
+[Tiny-Tasks Trello Board](https://trello.com/b/bpYMXv1N/project-4-tinytasks)
 
 ## Major Hurdles:
 This was my most challenging project to date. Some of the biggest challenges included:
@@ -25,10 +29,12 @@ This was my most challenging project to date. Some of the biggest challenges inc
 ## Ice Box Items:
 - Editing/Updating A Task
 - Adding Images for Each Task
-- Add a rewards declartion
+- Adding child profiles
+- Add a rewards declaration
     "You've earned your reward!"
 
 ## Wireframes:
+![wireframe.png](https://iili.io/HG30EYu.png)
 
 ## Entity Relationship Diagram:
-
+![erd.png](https://iili.io/HG30l49.png)

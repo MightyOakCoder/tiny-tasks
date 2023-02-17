@@ -30,17 +30,12 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
         {lineItems.length ?
           <>
             {lineItems}
-            <section className="total">
-              {order.isDone ?
-                <span className="right">TOTAL&nbsp;&nbsp;</span>
-                :
-                <button
-                  className="btn-sm"
-                  onClick={handleCheckout}
-                  disabled={!lineItems.length}
-                >CHECKOUT</button>
-              }
-              <span>{order.totalQty}</span>
+             <section className="total">
+              <span>Total Tasks</span>
+              <span className='right'>{order.totalQty}</span>
+              <br/>
+              <span>Total Points</span>
+              
               <span className="right">{order.orderTotal.toFixed(0)}</span>
             </section>
           </>
