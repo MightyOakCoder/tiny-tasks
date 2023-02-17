@@ -33,13 +33,13 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
             <section className="total">
               {/* <span>{order.totalQty}</span> */}
               <section className="total">
-              {/* <span className='total'>{order.totalQty}</span> */}
-              <br/>
               <span>Total Tasks</span>
+              <span className='right'>{order.totalQty}</span>
+              <br/>
               <span>Total Points</span>
               {/* <span className="total">{order.orderTotal.toFixed(0)}</span> */}
             </section>
-              {/* <span className="total">{order.orderTotal.toFixed(0)}</span> */}
+              <span className="right">{order.orderTotal.toFixed(0)}</span>
             </section>
           </>
           :

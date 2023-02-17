@@ -12,9 +12,10 @@ This app also includes a fun points & rewards system to help little ones stay mo
 - JavaScript
 - JSX
 - CSS
+- Canva
 
 ## Deployed Link:
-[Tiny Tasks](http://tiny-tasks-app.herokuapp.com)
+[Tiny Tasks](http://tiny-tasks-app.herokuapp.com) **not currently working
 
 ## Trello Board:
 [Tiny-Tasks Trello Board](https://trello.com/b/bpYMXv1N/project-4-tinytasks)
@@ -34,7 +35,7 @@ This was my most challenging project to date. Some of the biggest challenges inc
     "You've earned your reward!"
 
 ## Wireframes:
-![wireframe.png](https://iili.io/HG30EYu.png)
+![wireframe.png](https://iili.io/HGqcYox.png)
 
 ## Entity Relationship Diagram:
 ![erd.png](https://iili.io/HG30l49.png)
