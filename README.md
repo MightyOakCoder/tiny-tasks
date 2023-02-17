@@ -34,9 +34,9 @@ This was my most challenging project to date. Some of the biggest challenges inc
 - Add a rewards declaration
     "You've earned your reward!"
 
-## Wireframes:
-![wireframe](https://iili.io/HGqcYox.png)
-
 ## Entity Relationship Diagram:
 ![erd](https://iili.io/HG30l49.png)
+
+## Wireframes:
+![wireframe](https://iili.io/HGqcYox.png)
 
