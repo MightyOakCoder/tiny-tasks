@@ -20,9 +20,9 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
     <div className="OrderDetail">
       <div className="section-heading">
         {order.isDone ?
-          <span>ORDER <span className="smaller">{order.orderId}</span></span>
+          <span>Add Tasks <span className="smaller">{order.orderId}</span></span>
           :
-          <span>NEW ORDER</span>
+          <span>This Week's Tasks</span>
         }
         <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
       </div>
@@ -31,24 +31,15 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
           <>
             {lineItems}
             <section className="total">
-              {order.isDone ?
-                <span className="right">TOTAL&nbsp;&nbsp;</span>
-                :
-                <button
-                  className="btn-sm"
-                  onClick={handleCheckout}
-                  disabled={!lineItems.length}
-                >CHECKOUT</button>
-              }
-              <span>{order.totalQty}</span>
+              {/* <span>{order.totalQty}</span> */}
               <section className="total">
-              <span>Total Tasks</span>
-              <span className='total'>{order.totalQty}</span>
+              {/* <span className='total'>{order.totalQty}</span> */}
               <br/>
+              <span>Total Tasks</span>
               <span>Total Points</span>
-              <span className="total">{order.orderTotal.toFixed(0)}</span>
+              {/* <span className="total">{order.orderTotal.toFixed(0)}</span> */}
             </section>
-              <span className="total">{order.orderTotal.toFixed(0)}</span>
+              {/* <span className="total">{order.orderTotal.toFixed(0)}</span> */}
             </section>
           </>
           :

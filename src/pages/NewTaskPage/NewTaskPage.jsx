@@ -51,7 +51,6 @@ export default function NewTaskForm({ setTotalTasks }) {
           value={newTask.chore}
           placeholder=""
         />
-        <br/>
         <label>Category</label>
         <select
           id="categoryId"
@@ -67,7 +66,6 @@ export default function NewTaskForm({ setTotalTasks }) {
           <option value={"63eefab6fbba5d8d471b20a6"}>10+</option>
           <option value={"63eefab6fbba5d8d471b20a7"}>12+</option>
         </select>
-        <br/>
         <label>Points</label>
         <select
           name="points"
@@ -81,7 +79,6 @@ export default function NewTaskForm({ setTotalTasks }) {
         </select>
         <br/>
         <button onClick={handleAddTask}>Add New Task</button>
-        <Link to="/tasks" className="button btn-sm">Return To Task List</Link>
       </form>
     </div>
   );

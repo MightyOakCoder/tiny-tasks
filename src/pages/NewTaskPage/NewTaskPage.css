@@ -1,42 +1,50 @@
 .NewTaskPage {
-    font-family: sans-serif;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1rem;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: bold;
-    color: teal;
-    text-align: left;
-    border: 0.2rem solid coral;
-    border-radius: 0.3rem;
-    padding: 1rem;
-  }
-  
-  input,
-  select {
-    font-size: 1rem;
-    font-weight: bold;
-    color: teal;
-    padding: 0.2rem;
-    border: 0.2rem solid coral;
-    border-radius: 0.3rem;
-    outline: none;
-    margin-left: 20px;
-  }
-  
-  button {
-    grid-column: span 2;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    padding: 0.2rem;
-    background-color: teal;
-    border: 0.2rem solid teal;
-    border-radius: 0.3rem;
-  }
-  
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: teal;
+  text-align: left;
+  border-radius: 0.3rem;
+  padding: 1rem;
+}
+
+.NewTaskPage .label {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+}
+
+input,
+select {
+  font-size: 1rem;
+  font-weight: bold;
+  color: teal;
+  padding: 0.2rem;
+  border: 0.2rem solid #497B60;
+  border-radius: 0.3rem;
+  outline: none;
+  margin-left: 20px;
+}
+
+button {
+margin: 1vmin;
+padding: 1vmin;
+color: var(--white);
+background-color: #497B60;
+font-size: 14px;
+font-weight: bold;
+text-decoration: none;
+text-align: center;
+border: .1vmin solid var(--tan-2);
+border-radius: .5vmin;
+outline: none;
+cursor: pointer;
+}
